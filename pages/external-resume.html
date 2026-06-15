@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Potter - Resume</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color Palette: Modern Professional */
+            --bg-color: #f4f6f8;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --header-bg: #0B2545; /* Deep Navy */
+            --header-text: #ffffff;
+            --accent-color: #D4AF37; /* Soft Gold/Mustard */
+            --accent-hover: #b5952f;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 12px 24px rgba(11, 37, 69, 0.15); /* Navy-tinted shadow */
+            --border-color: #e2e8f0;
+            
+            /* Typography */
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Poppins', sans-serif;
+        }
+
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --header-bg: #081121; /* Darker Navy */
+            --header-text: #f8fafc;
+            --accent-color: #E2A72F;
+            --accent-hover: #D4AF37;
+            --card-bg: #1e293b;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            --card-shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.4);
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+        }
+
+        .resume-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background-color: transparent;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 4rem 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 20px; /* Squircle feel */
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-text h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--header-text);
+        }
+
+        .contact-info {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info svg {
+            color: var(--accent-color);
+        }
+
+        /* Controls */
+        .controls {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+        }
+
+        button.theme-toggle {
+            font-family: var(--font-heading);
+            background: var(--accent-color);
+            border: none;
+            color: var(--header-bg);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        button.theme-toggle:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 3rem 1.5rem;
+            }
+            .contact-info {
+                justify-content: center;
+            }
+            .controls {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Typography */
+        h2, h3, h4 {
+            font-family: var(--font-heading);
+        }
+
+        h2 {
+            color: var(--header-bg);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            width: 100%;
+        }
+
+        body.dark-mode h2 {
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+            color: var(--header-bg);
+        }
+        
+        body.dark-mode h3 {
+            color: var(--accent-color);
+        }
+
+        h4 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .date-location {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        ul {
+            margin-left: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sections & Cards */
+        .section {
+            margin-bottom: 1rem;
+        }
+
+        .job, .education-item, .summary-card {
+            background-color: var(--card-bg);
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 5px solid transparent;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .job:hover, .education-item:hover, .summary-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-shadow-hover);
+            border-left-color: var(--accent-color);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+            margin-left: 0;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .skills-list li {
+            background-color: var(--bg-color);
+            color: var(--header-bg);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            margin-bottom: 0;
+        }
+        
+        body.dark-mode .skills-list li {
+            color: var(--text-main);
+        }
+
+        .education-item ul {
+            margin-bottom: 0;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        .resume-footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <header>
+            <div class="controls">
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+            </div>
+            
+            <img src="../images/jordan_headshot.jpg" alt="Jordan Potter" class="profile-img" onerror="this.style.display='none'">
+            
+            <div class="header-text">
+                <h1>Jordan Potter</h1>
+                <div class="contact-info">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+                        jordanofpotter1@gmail.com
+                    </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
+                        385-881-3766
+                    </span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                        Provo, Utah 84602
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            <!-- Left Column: Main Content -->
+            <div class="left-col">
+                <div class="section">
+                    <h2>Professional Summary</h2>
+                    <div class="summary-card">
+                        <p>Faith-centered and energetic aspiring entrepreneur with hands-on experience in fast-paced production, logistics, and client-facing environments. Passionate about building purpose-driven ventures, fostering Christlike leadership within teams, and delivering exceptional value while helping others build confidence and feel the Savior’s love in every business interaction.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Work History</h2>
+                    
+                    <div class="job">
+                        <h3>Customer Service & Operations Cashier</h3>
+                        <h4>Fat Cats</h4>
+                        <div class="date-location">05/2023 - Current | Bluffdale, UT</div>
+                        <ul>
+                            <li>Executed point-of-sale operations, managed cash handling, and drove customer retention in a high-volume entertainment environment.</li>
+                            <li>Promoted a welcoming, values-driven environment that ensured positive guest experiences from start to finish.</li>
+                            <li>Fostered teamwork and Christlike encouragement during peak operational hours, supporting cross-functional staff.</li>
+                            <li>Mentored and onboarded new employees, modeling company values, operational workflows, and professional client interaction.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <h3>Independent Childcare Provider</h3>
+                        <h4>Self-Employed Services</h4>
+                        <div class="date-location">01/2018 - Current | Riverton, UT</div>
+                        <p>Built and managed a successful independent service business, maintaining a loyal client base through reliability and clear communication by:</p>
+                        <ul>
+                            <li>Managing flexible scheduling, client relations, and daily operations while creating a safe, uplifting, and educational environment.</li>
+                            <li>Balancing structured activities with operational responsibilities such as managing meals and routines.</li>
+                            <li>Handling unexpected logistical challenges with composure and responsibility, building strong trust with clients.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Internships</h2>
+
+                    <div class="job">
+                        <h3>Bakery Production Intern</h3>
+                        <h4>Art City Sweets and the Ragamuffin</h4>
+                        <div class="date-location">02/2026 - Current | Provo, UT</div>
+                        <ul>
+                            <li>Assist in the daily, high-volume production and inventory management of fresh soups and a diverse menu of baked goods.</li>
+                            <li>Maintain strict quality control and visual consistency for a variety of pastries, ensuring a premium product for customers.</li>
+                            <li>Optimize workspace organization and sanitation to support seamless and efficient back-of-house operations.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <h3>Event Catering Intern</h3>
+                        <h4>Chef Nettie Frank</h4>
+                        <div class="date-location">04/2025 | Provo, UT</div>
+                        <ul>
+                            <li>Supported end-to-end logistics and execution for a high-profile, 4-day corporate catering event for DoTerra Essential Oils.</li>
+                            <li>Managed supply chain tasks including grocery procurement, inventory tracking, and detailed food preparation under strict deadlines.</li>
+                            <li>Delivered three daily meals, snacks, and desserts while maintaining operational efficiency and a sanitary workspace throughout the multi-day event.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <h3>Food Production & Operations Intern</h3>
+                        <h4>Mountainland Technical College Culinary Externship</h4>
+                        <div class="date-location">08/2024 - 05/2025 | Lehi, UT</div>
+                        <ul>
+                            <li>Gained comprehensive operational experience by efficiently executing cold prep, line cooking, and high-volume catering orders.</li>
+                            <li>Managed kitchen inventory and supply chain logistics, creating supply orders to efficiently restock essential ingredients and materials.</li>
+                            <li>Enforced strict kitchen sanitization and food safety compliance to ensure a safe, professional, and risk-free culinary environment.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Volunteer Work</h2>
+                    <div class="job">
+                        <h3>Riverton City Youth Council</h3>
+                        <ul>
+                            <li>Project-managed community service events and youth activities to promote unity, purpose, and servant leadership.</li>
+                            <li>Collaborated with peers to represent local youth voices and deliver value to the community through organized service initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <div class="right-col">
+                <div class="section">
+                    <h2>Skills</h2>
+                    <ul class="skills-list">
+                        <li>Business Operations & Logistics</li>
+                        <li>Client Relationship Management</li>
+                        <li>Christlike Leadership</li>
+                        <li>Spiritual Mentoring</li>
+                        <li>High-Energy Problem Solving</li>
+                        <li>Inventory & Supply Chain Tracking</li>
+                        <li>Event Execution & Planning</li>
+                        <li>Personable Nature</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Education</h2>
+                    
+                    <div class="education-item">
+                        <h3>Brigham Young University</h3>
+                        <div class="date-location">Expected Graduation: 05/2030 | Provo, UT</div>
+                        <p>No Degree : Pre-Business</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>Mountainland Technical College</h3>
+                        <div class="date-location">Graduated: 05/2025 | Lehi, UT</div>
+                        <p>Certificate : Culinary Arts</p>
+                        <p><strong>GPA:</strong> 4.0</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>Summit Academy Highschool</h3>
+                        <div class="date-location">Graduated: 05/2025 | Bluffdale, UT</div>
+                        <p>High School Diploma</p>
+                        <ul>
+                            <li>Seminary Council 2025</li>
+                            <li>Seminary Graduate</li>
+                            <li>Extracurricular Activities: Theatre</li>
+                            <li>Honor Roll 2021-2025</li>
+                            <li>Honoree of Culinary arts, Varsity Drill, and Sterling Scholar</li>
+                            <li>National Society of High School Scholars</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="resume-footer">
+            <p>Thank you for coming to my TED Talk!</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                btn.textContent = '☀️ Light Mode';
+            } else {
+                btn.textContent = '🌙 Dark Mode';
+            }
+        }
+        
+        // Add subtle entrance animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.job, .education-item, .summary-card, .skills-list, .section h2');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(15px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+.hero{
+    background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFyaXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60");
+    background-size: 20em;
+    background-position: center;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+.right-column {
+    background-color: white
+    
+}
+
+.left-column {
+    Background-color: #f4f6f8;
+
+}
+
+.two-column-layout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2px;
+    font-family: arial, sans-serif;
+}
+
+.footer {
+  background-color: #323C4A;
+  padding: 10px;
+  margin-top: auto;
+  text-align: center;
+  color: white;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none; 
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
